@@ -1,0 +1,5 @@
+click "Block" using OCR only using the mouse
+click "Yardbird"
+check that page contains "Showroom"
+switch to tab 1
+check that page contains "Yes, Best Buy Sells That"
