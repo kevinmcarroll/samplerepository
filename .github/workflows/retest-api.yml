@@ -1,0 +1,20 @@
+name: API Call Workflow
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  api_call_job:
+    runs-on: ubuntu-latest
+
+    steps:
+
+    - name: Make API call with cURL
+      run: |
+        curl -X POST \
+        -H 'Content-type: application/json' \
+        -H 'auth-token: ${{secrets.TEST_SUITE_TOKEN}}' \
+        https://api.testrigor.com/api/v1/apps/NihDdLMoqyeKutE3y/retest
