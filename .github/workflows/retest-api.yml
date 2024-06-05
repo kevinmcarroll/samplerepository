@@ -17,17 +17,21 @@ jobs:
     - name: convert test cases to json
       id: convert_test_cases_to_json
       run: |
-        # Path to the YAML file
-        yaml_file="test_cases/Add product to cart and remove the item from the cart, then check that it was removed successfully.yaml"
-
-        # Convert YAML to JSON using yq
-        json_content=$(yq eval -o=json "$yaml_file")
+          # Path to the folder containing YAML files
+          yaml_folder="test_cases"
+          
+          # Initialize an empty JSON array
+          combined_json='{
+            "baselineMutations": []
+          }'
+          # Loop through each YAML file in the folder
+          for yaml_file in "$yaml_folder"/*.yaml; do
+             # Convert YAML to JSON using yq
+            json_content=$(yq eval -o=json "$yaml_file")
         
-        # Create another JSON object with an array
-        additional_json='{
-          "baselineMutations": []
-        }'
-        combined_json=$(jq --argjson content "$json_content" '.baselineMutations += [$content]' <<< "$additional_json")
+            # Add json_content to the array in the JSON object using jq
+            combined_json=$(jq --argjson content "$json_content" '.baselineMutations += [$content]' <<< "$combined_json")
+          done
     - name: Make API call with cURL
       run: |
         curl -X POST \
