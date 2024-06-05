@@ -11,12 +11,26 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Checkout
+      uses: actions/checkout@v2
 
+    - name: convert test cases to json
+      id: convert_test_cases_to_json
+      run: |
+        # Path to the YAML file
+        yaml_file=“testcases/Add product to cart and remove the item from the cart, then check that it was removed successfully.yaml"  
+        # Convert YAML to JSON using yq
+        json_content=$(yq eval -o=json "$yaml_file")
+        additional_json='{
+          "baselineMutations": []
+        }'
+        combined_json=$(jq --argjson content "$json_content" '.baselineMutations += [$content]' <<< "$additional_json")
     - name: Make API call with cURL
       run: |
         curl -X POST \
         -H 'Content-type: application/json' \
         -H 'auth-token: ${{secrets.TEST_SUITE_TOKEN}}' \
+        --data "${combined_json}" \
         https://api.testrigor.com/api/v1/apps/NihDdLMoqyeKutE3y/retest
         
         sleep 10
