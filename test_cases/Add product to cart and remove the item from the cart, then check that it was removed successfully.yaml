@@ -1,0 +1,19 @@
+uuid: 535a65e6-b3e0-4029-b9fa-4fc5834922f0
+customSteps: |
+  click "Block" using OCR only using the mouse
+  click edit "What can we help you find today?"
+  type "ipad air 13 inch"
+  type enter
+  grab value from "customer-price" on the right of 1st "sku-title" and save it "itemPrice"
+  click 1st "Add to Cart"
+  click "Go to cart"
+  check that page contains "Save for later"
+  grab value from "price-block" on the right of "Save for later" and save it as "cartPrice"
+  //check that page contains saved value "itemPrice" on the right of "Save for later"
+  wait 3 sec
+  check that saved value "itemPrice" itself contains saved value "cartPrice"
+  click "Remove" below "Save for later"
+  check that page contains "Your list is currently empty"
+labels: []
+disabled: false
+applicationId: NihDdLMoqyeKutE3y

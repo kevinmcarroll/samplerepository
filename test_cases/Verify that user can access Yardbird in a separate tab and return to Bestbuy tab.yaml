@@ -1,0 +1,10 @@
+uuid: 3fb20cbd-fc5b-4384-92bc-f275e3078f6e
+customSteps: |
+  click "Block" using OCR only using the mouse
+  click "Yardbird"
+  check that page contains "Showroom"
+  switch to tab 1
+  check that page contains "Yes, Best Buy Sells That"
+labels: []
+disabled: false
+applicationId: NihDdLMoqyeKutE3y

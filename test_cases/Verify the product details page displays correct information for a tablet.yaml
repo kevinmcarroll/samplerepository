@@ -1,0 +1,16 @@
+uuid: 8a1cde58-be7e-45f2-9b5f-ad6474101ec1
+customSteps: |
+  click "Block" using OCR only using the mouse
+  enter "Tablet" into "What can we help you find today?"
+  click "submit search"
+  grab value from "sku-title" and save it as "product"
+  click saved value "product"
+  wait 5 sec
+  check that page contains saved value "product" above and on the right of "primary-image"
+  hover over the middle of the page
+  scroll down until page contains "Show full specs"
+  click "Show full specs"
+  check that page contains saved value "product" below and on the right of "Specifications"
+labels: []
+disabled: false
+applicationId: NihDdLMoqyeKutE3y

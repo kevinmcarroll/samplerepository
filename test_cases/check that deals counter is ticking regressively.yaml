@@ -1,0 +1,17 @@
+uuid: dc850ab3-86e0-4bad-bb95-ac02a1cb511e
+customSteps: |
+  click "Block" using OCR only using the mouse
+  click "Deal of the Day"
+  grab value from "hours cdnumber" and save it as "hour1"
+  grab value from "minutes cdnumber" and save it as "min1"
+  grab value from "seconds cdnumber" and save it as "sec1"
+  save string with parameters "${hour1}${min1}${sec1}" as "time1"
+  reload
+  grab value from "hours cdnumber" and save it as "hour2"
+  grab value from "minutes cdnumber" and save it as "min2"
+  grab value from "seconds cdnumber" and save it as "sec2"
+  save string with parameters "${hour2}${min2}${sec2}" as "time2"
+  check that stored value "time1" itself is greater than stored value "time2"
+labels: []
+disabled: false
+applicationId: NihDdLMoqyeKutE3y

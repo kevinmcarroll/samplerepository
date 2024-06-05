@@ -1,0 +1,14 @@
+uuid: 709739d3-228b-4723-907e-e10b9c06a341
+customSteps: |
+  click "Block" using OCR only using the mouse
+  click "Menu"
+  click "Cameras, Camcorders & Drones"
+  click "Binoculars, Telescopes & Optics"
+  click "Trail Cameras & Rangefinders"
+  check that "Breadcrumb" contains "Cameras, Camcorders & Drones" on the right of "Best Buy"
+  hover over the middle of the screen
+  check that "Breadcrumb" contains "Binoculars, Telescopes & Optics" on the right of "Cameras, Camcorders & Drones" on the right of "Best Buy"
+  check that page contains "Trail Cameras & Rangefinders" beow "Breadcrumb"
+labels: []
+disabled: false
+applicationId: NihDdLMoqyeKutE3y

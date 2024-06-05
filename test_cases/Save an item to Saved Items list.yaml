@@ -1,0 +1,23 @@
+uuid: 8307e335-0068-4837-adb6-b0f525936e99
+customSteps: |
+  click "Block" using OCR only using the mouse
+  click "Saved Items"
+  check that page contains "Looks like you don't have anything saved..."
+  click "Close"
+  click edit "What can we help you find today?"
+  type "iPad"
+  type enter
+  grab value from "iPad" in the context of "sku-title" and save it as "product"
+  click "Add to Cart"
+  click "Go to cart"
+  click "Save for later"
+  click "Saved Items"
+  check that page doesn't contain "Looks like you don't have anything saved..."
+  grab value from "line-clamp-2" and save it as "productNameInSavedContainer"
+  check that saved value "productNameInSavedContainer" itself is equal to stored value "product"
+  click "See all your saved items"
+  check that page contains stored value "productNameInSavedContainer" above "Add to cart"
+  click saved value "productNameInSavedContainer"
+labels: []
+disabled: false
+applicationId: NihDdLMoqyeKutE3y

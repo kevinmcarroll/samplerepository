@@ -1,0 +1,15 @@
+uuid: 9f9bde75-566f-46ba-a75d-3b247a00a356
+customSteps: |
+  click "Block" using OCR only using the mouse
+  click "store-display-name"
+  click "Find another store"
+  click edit "Search by ZIP, City or State"
+  type "San Francisco"
+  click "Update"
+  grab value from on the right of "Store 1" and save it as "store"
+  check that page doesn't contain stored value "store" on the left of "Cart"
+  click "make-this-store-container"
+  check that page contains stored value "store" on the left of "Cart"
+labels: []
+disabled: false
+applicationId: NihDdLMoqyeKutE3y
